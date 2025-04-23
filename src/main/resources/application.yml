@@ -1,0 +1,42 @@
+server:
+    port: 8085
+    context-path: /rest/api
+spring:
+    application:
+        name: bidding-seller-service
+    datasource:
+        url: jdbc:postgresql://localhost:5432/bidding_engine
+        username: postgres
+        password: postgres
+        driver-class-name: org.postgresql.Driver
+        hikari:
+            maximum-pool-size: 10
+            minimum-idle: 5
+            idle-timeout: 30000
+            max-lifetime: 1800000
+            connection-timeout: 30000
+            schema: ondc_schema
+
+    jpa:
+        hibernate:
+            ddl-auto: none
+        show-sql: true
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+                format_sql: true
+    liquibase:
+        change-log: classpath:db/changelog/db.changelog-master.yaml
+        enabled: false
+logging:
+    level:
+        root: INFO
+        com.enam: DEBUG
+        org.springframework: WARN
+    file:
+        name: logs/app.log
+
+api:
+    cors:
+        origins: "*"
+        allowed-headers: Content-Type,Authorization,X-Requested-With

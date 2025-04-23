@@ -1,0 +1,578 @@
+databaseChangeLog:
+- changeSet:
+    id: 1744024935329-1
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: auction_extension_history_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: new_end_time
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: original_end_time
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: bid_id
+            type: VARCHAR(255)
+        - column:
+            name: created_by
+            type: VARCHAR(255)
+        - column:
+            name: extended_by
+            type: VARCHAR(255)
+        - column:
+            name: extension_reason
+            type: VARCHAR(255)
+        - column:
+            name: updated_by
+            type: VARCHAR(255)
+        tableName: auction_extension_history
+        ifNotExists: true
+        schemaName: bid_seller
+- changeSet:
+    id: 1744024935329-2
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: bid_item
+            type: INTEGER
+        - column:
+            name: bid_provider
+            type: INTEGER
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: bid_association_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            constraints:
+              nullable: false
+            name: lot_code
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: apmc_id
+            type: VARCHAR(255)
+        - column:
+            name: auction_location_type
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: bid_id
+            type: VARCHAR(255)
+        - column:
+            name: created_by
+            type: VARCHAR(255)
+        - column:
+            name: updated_by
+            type: VARCHAR(255)
+        tableName: bid_association
+        ifNotExists: true
+        schemaName: bid_seller
+- changeSet:
+    id: 1744024935329-3
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: allow_multi_bids
+            type: BOOLEAN
+        - column:
+            name: auto_assign_winner
+            type: BOOLEAN
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: bid_creation_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: min_bid_price
+            type: numeric(10, 2)
+        - column:
+            name: min_bidders_req
+            type: INTEGER
+        - column:
+            name: bid_end_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: bid_end_time
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: bid_start_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: bid_start_time
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: bid_id
+            type: VARCHAR(255)
+        - column:
+            name: bid_status
+            type: VARCHAR(255)
+        - column:
+            name: bid_type
+            type: VARCHAR(255)
+        - column:
+            name: created_by
+            type: VARCHAR(255)
+        - column:
+            name: label
+            type: VARCHAR(255)
+        - column:
+            name: updated_by
+            type: VARCHAR(255)
+        tableName: bid_creation
+        ifNotExists: true
+        schemaName: bid_seller
+- changeSet:
+    id: 1744024935329-4
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: bid_accepted
+            type: BOOLEAN
+        - column:
+            name: bid_price
+            type: numeric(38, 2)
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: bid_history_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: order_id
+            type: INTEGER
+        - column:
+            name: bid_placed_timestamp
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: bid_id
+            type: VARCHAR(255)
+        - column:
+            name: created_by
+            type: VARCHAR(255)
+        tableName: bid_history
+        ifNotExists: true
+        schemaName: bid_seller
+- changeSet:
+    id: 1744024935329-5
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: bid_results_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: is_rejected_by_seller
+            type: BOOLEAN
+        - column:
+            name: winning_buyer_id
+            type: INTEGER
+        - column:
+            name: winning_price
+            type: numeric(10, 2)
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: declared_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: declared_by
+            type: VARCHAR(20)
+        - column:
+            constraints:
+              nullable: false
+            name: bid_id
+            type: VARCHAR(255)
+        - column:
+            name: created_by
+            type: VARCHAR(255)
+        - column:
+            name: rejection_reason
+            type: VARCHAR(255)
+        - column:
+            name: updated_by
+            type: VARCHAR(255)
+        tableName: bid_results
+        ifNotExists: true
+        schemaName: bid_seller
+- changeSet:
+    id: 1744024935329-6
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: provider_extension_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: provider_id
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: brand_owner
+            type: VARCHAR(255)
+        - column:
+            name: created_by
+            type: VARCHAR(255)
+        - column:
+            name: gst_credit_invoice
+            type: VARCHAR(255)
+        - column:
+            name: license_number
+            type: VARCHAR(255)
+        - column:
+            name: type_of_business
+            type: VARCHAR(255)
+        - column:
+            name: updated_by
+            type: VARCHAR(255)
+        tableName: provider_extension
+        ifNotExists: true
+        schemaName: bid_seller
+- changeSet:
+    id: 1744024935329-7
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: reference_data_pkey
+            name: ref_data_id
+            type: INTEGER
+        - column:
+            name: ref_type_id
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: effective_expiry_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: effective_start_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: created_by
+            type: VARCHAR(255)
+        - column:
+            name: ref_code
+            type: VARCHAR(255)
+        - column:
+            name: updated_by
+            type: VARCHAR(255)
+        tableName: reference_data
+        ifNotExists: true
+        schemaName: bid_seller
+- changeSet:
+    id: 1744024935329-8
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: reference_type_pkey
+            name: ref_type_id
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: created_by
+            type: VARCHAR(255)
+        - column:
+            name: ref_type_description
+            type: VARCHAR(255)
+        - column:
+            name: updated_by
+            type: VARCHAR(255)
+        tableName: reference_type
+        ifNotExists: true
+        schemaName: bid_seller
+- changeSet:
+    id: 1744024935329-9
+    author: animesh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: bid_id
+        constraintName: bid_creation_bid_id_key
+        tableName: bid_creation
+        schemaName: bid_seller
+
+- changeSet:
+      id: 1744024935329-10
+      author: animesh (generated)
+      changes:
+          - sql:
+                sql: ALTER TABLE bid_seller.bid_history DROP CONSTRAINT IF EXISTS fk1totqfgdyerux7s0ua0soisd1;
+          - addForeignKeyConstraint:
+                baseColumnNames: bid_id
+                baseTableName: bid_history
+                baseTableSchemaName: bid_seller
+                constraintName: fk1totqfgdyerux7s0ua0soisd1
+                deferrable: false
+                initiallyDeferred: false
+                onDelete: NO ACTION
+                onUpdate: NO ACTION
+                referencedColumnNames: bid_id
+                referencedTableName: bid_creation
+                referencedTableSchemaName: bid_seller
+                validate: true
+
+- changeSet:
+      id: 1744024935329-11
+      author: animesh (generated)
+      changes:
+          - sql:
+                sql: ALTER TABLE bid_seller.bid_association DROP CONSTRAINT IF EXISTS fk8rg59pvbk7ib4lgi79p8qpex;
+          - addForeignKeyConstraint:
+                baseColumnNames: bid_id
+                baseTableName: bid_association
+                baseTableSchemaName: bid_seller
+                constraintName: fk8rg59pvbk7ib4lgi79p8qpex
+                deferrable: false
+                initiallyDeferred: false
+                onDelete: NO ACTION
+                onUpdate: NO ACTION
+                referencedColumnNames: bid_id
+                referencedTableName: bid_creation
+                referencedTableSchemaName: bid_seller
+                validate: true
+- changeSet:
+      id: 1744024935329-12
+      author: animesh (generated)
+      changes:
+          - sql:
+                sql: ALTER TABLE bid_seller.bid_results DROP CONSTRAINT IF EXISTS fkgqn5symysf7p6cn96gaqj7vgc;
+          - addForeignKeyConstraint:
+                baseColumnNames: bid_id
+                baseTableName: bid_results
+                baseTableSchemaName: bid_seller
+                constraintName: fkgqn5symysf7p6cn96gaqj7vgc
+                deferrable: false
+                initiallyDeferred: false
+                onDelete: NO ACTION
+                onUpdate: NO ACTION
+                referencedColumnNames: bid_id
+                referencedTableName: bid_creation
+                referencedTableSchemaName: bid_seller
+                validate: true
+- changeSet:
+      id: 1744024935329-13
+      author: animesh (generated)
+      changes:
+          - sql:
+                sql: ALTER TABLE bid_seller.auction_extension_history DROP CONSTRAINT IF EXISTS fkt42hiwxjfocivbxkwpsh2e7oo;
+          - addForeignKeyConstraint:
+                baseColumnNames: bid_id
+                baseTableName: auction_extension_history
+                baseTableSchemaName: bid_seller
+                constraintName: fkt42hiwxjfocivbxkwpsh2e7oo
+                deferrable: false
+                initiallyDeferred: false
+                onDelete: NO ACTION
+                onUpdate: NO ACTION
+                referencedColumnNames: bid_id
+                referencedTableName: bid_creation
+                referencedTableSchemaName: bid_seller
+                validate: true
+- changeSet:
+    id: 1744024935329-14
+    author: animesh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: provider_id
+        constraintName: provider_extension_provider_id_key
+        tableName: provider_extension
+        schemaName: bid_seller
+- changeSet:
+    id: 1744024935329-15
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE bid_seller.bid_association DROP CONSTRAINT IF EXISTS fk5bh5q95mt3jm90fb81j6lc3th;
+        - addForeignKeyConstraint:
+            baseColumnNames: bid_item
+            baseTableName: bid_association
+            baseTableSchemaName: bid_seller
+            constraintName: fk5bh5q95mt3jm90fb81j6lc3th
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: provider_item
+            referencedTableSchemaName: ondc_schema
+            validate: true
+- changeSet:
+    id: 1744024935329-16
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE bid_seller.bid_association DROP CONSTRAINT IF EXISTS fkjideeqt06hqstsqb9uasgcaeb;
+        - addForeignKeyConstraint:
+            baseColumnNames: bid_provider
+            baseTableName: bid_association
+            baseTableSchemaName: bid_seller
+            constraintName: fkjideeqt06hqstsqb9uasgcaeb
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: providers
+            referencedTableSchemaName: ondc_schema
+            validate: true
+- changeSet:
+      id: 1744024935329-17
+      author: animesh (generated)
+      changes:
+          - sql:
+                sql: ALTER TABLE bid_seller.bid_history DROP CONSTRAINT IF EXISTS fkrkqf1pi31i9tm3esxsae2ltoc;
+          - addForeignKeyConstraint:
+                baseColumnNames: order_id
+                baseTableName: bid_history
+                baseTableSchemaName: bid_seller
+                constraintName: fkrkqf1pi31i9tm3esxsae2ltoc
+                deferrable: false
+                initiallyDeferred: false
+                onDelete: NO ACTION
+                onUpdate: NO ACTION
+                referencedColumnNames: id
+                referencedTableName: orders
+                referencedTableSchemaName: ondc_schema
+                validate: true
+- changeSet:
+    id: 1744024935329-18
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE bid_seller.provider_extension DROP CONSTRAINT IF EXISTS fk3cgpv9p67fqwrm1wvm2y5f0bx;
+        - addForeignKeyConstraint:
+            baseColumnNames: provider_id
+            baseTableName: provider_extension
+            baseTableSchemaName: bid_seller
+            constraintName: fk3cgpv9p67fqwrm1wvm2y5f0bx
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: providers
+            referencedTableSchemaName: ondc_schema
+            validate: true
+- changeSet:
+    id: 1744024935329-19
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE bid_seller.reference_data DROP CONSTRAINT IF EXISTS fk63lufkybb1x62niaudjiumupn;
+        - addForeignKeyConstraint:
+            baseColumnNames: ref_type_id
+            baseTableName: reference_data
+            baseTableSchemaName: bid_seller
+            constraintName: fk63lufkybb1x62niaudjiumupn
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: ref_type_id
+            referencedTableName: reference_type
+            referencedTableSchemaName: bid_seller
+            validate: true
+

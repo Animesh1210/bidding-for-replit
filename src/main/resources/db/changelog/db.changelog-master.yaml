@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changes/change-log-ondc-initial.yaml
+  - include:
+      file: db/changelog/changes/change-log-seller-bid-initial.yaml
+#  - include:
+#      file : changes/change-log-(schema-name)-(version -1.1,1.2..) create a new files under changes for the same`

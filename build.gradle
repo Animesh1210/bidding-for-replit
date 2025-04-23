@@ -1,0 +1,96 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'org.jsonschema2pojo:jsonschema2pojo-gradle-plugin:1.2.2'
+	}
+}
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.4.4'
+	id 'io.spring.dependency-management' version '1.1.7'
+	id "org.jsonschema2pojo" version "1.2.2"
+}
+
+group = 'com.enam.bid.seller'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+	maven {
+		url = uri("https://maven.pkg.github.com/eNAMakal/enam-ONDCRestModel")
+		credentials {
+			username = project.findProperty("githubUserName") ?: System.getenv("githubUserName")
+			password = project.findProperty("githubAccessToken") ?: System.getenv("githubAccessToken")
+		}
+	}
+	maven {
+		url = uri("https://maven.pkg.github.com/eNAMakal/enam-IntegrationLibrary")
+		credentials {
+			username = project.findProperty("githubUserName") ?: System.getenv("githubUserName")
+			password = project.findProperty("githubAccessToken") ?: System.getenv("githubAccessToken")
+		}
+	}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+//	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-logging'
+	implementation 'com.enam:enam-integration-library:1.0.2'
+	implementation 'com.enam.ondc.api:enam-ondcrestmodel:1.0.10'
+	implementation 'org.hibernate.orm:hibernate-core:6.4.4.Final'
+	implementation 'org.postgresql:postgresql:42.7.2'
+	implementation 'jakarta.persistence:jakarta.persistence-api:3.1.0'
+//	implementation 'org.apache.logging.log4j:log4j-slf4j2-impl:2.20.0'
+	implementation 'org.liquibase:liquibase-core'
+//	implementation 'org.liquibase:liquibase-gradle-plugin:3.0.2'
+	implementation 'com.zaxxer:HikariCP'
+	implementation 'org.modelmapper:modelmapper:3.2.2'
+	runtimeOnly 'org.postgresql:postgresql'
+	compileOnly 'org.projectlombok:lombok'
+	//developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.3'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	//	implementation 'org.springframework.boot:spring-boot-starter-security'
+	testImplementation 'org.springframework.security:spring-security-test'
+	testImplementation 'org.mockito:mockito-core:5.7.0'
+	//developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+	//	implementation 'org.liquibase:liquibase-gradle-plugin:3.0.2'
+	//	implementation 'org.apache.logging.log4j:log4j-slf4j2-impl:2.20.0'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+jsonSchema2Pojo {
+	targetDirectory = file("$buildDir/generated-sources/js2p")
+	timeType = "java.time.LocalDateTime"
+	dateType = "java.time.LocalDate"
+	targetPackage = "com.enam.pojo"
+	generateBuilders = true
+	includeAdditionalProperties = true
+	setSource(files("$projectDir/src/main/resources/json/seller"))
+	setAnnotationStyle("jackson")
+	formatDateTimes = true
+	formatDates = true
+	inclusionLevel="NON_NULL"
+}

@@ -1,0 +1,2273 @@
+databaseChangeLog:
+- changeSet:
+    id: 1744024820214-1
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: providers_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: rating
+            type: numeric(3, 1)
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: ttl
+            type: VARCHAR(10)
+        - column:
+            name: additional_desc_content_type
+            type: VARCHAR(50)
+        - column:
+            name: code
+            type: VARCHAR(50)
+        - column:
+            name: provider_id
+            type: VARCHAR(50)
+        - column:
+            name: role
+            type: VARCHAR(50)
+        - column:
+            name: additional_desc_url
+            type: VARCHAR(255)
+        - column:
+            name: image_url
+            type: VARCHAR(255)
+        - column:
+            name: long_desc
+            type: TEXT
+        - column:
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: short_desc
+            type: TEXT
+        tableName: providers
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-2
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: available_count
+            type: INTEGER
+        - column:
+            name: available_measure_value
+            type: numeric(15, 2)
+        - column:
+            name: creator_id
+            type: INTEGER
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: provider_item_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: matched
+            type: BOOLEAN
+        - column:
+            name: minimum_count
+            type: INTEGER
+        - column:
+            name: minimum_measure_value
+            type: numeric(15, 2)
+        - column:
+            name: offer_id
+            type: INTEGER
+        - column:
+            name: price_value
+            type: numeric(15, 2)
+        - column:
+            name: provider_id
+            type: INTEGER
+        - column:
+            name: recommended
+            type: BOOLEAN
+        - column:
+            name: unitized_value
+            type: numeric(15, 2)
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: category_id
+            type: VARCHAR(10)
+        - column:
+            name: price_currency
+            type: VARCHAR(10)
+        - column:
+            name: available_measure_unit
+            type: VARCHAR(20)
+        - column:
+            name: minimum_measure_unit
+            type: VARCHAR(20)
+        - column:
+            name: unitized_unit
+            type: VARCHAR(20)
+        - column:
+            name: item_id
+            type: VARCHAR(50)
+        - column:
+            name: long_desc
+            type: TEXT
+        - column:
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: short_desc
+            type: TEXT
+        tableName: provider_item
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-3
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: context_id
+            type: INTEGER
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: orders_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: provider_id
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: status
+            type: VARCHAR(50)
+        - column:
+            name: order_id
+            type: VARCHAR(255)
+        tableName: orders
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-4
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: buyer_context_pkey
+            name: context_id
+            type: INTEGER
+        - column:
+            name: country_code
+            type: VARCHAR(3)
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: city_code
+            type: VARCHAR(10)
+        - column:
+            name: version
+            type: VARCHAR(10)
+        - column:
+            name: action
+            type: VARCHAR(20)
+        - column:
+            name: domain
+            type: VARCHAR(50)
+        - column:
+            name: message_id
+            type: VARCHAR(50)
+        - column:
+            name: transaction_id
+            type: VARCHAR(50)
+        - column:
+            name: bap_id
+            type: VARCHAR(255)
+        - column:
+            name: bap_uri
+            type: VARCHAR(255)
+        - column:
+            name: created_by
+            type: VARCHAR(255)
+        - column:
+            name: updated_by
+            type: VARCHAR(255)
+        tableName: buyer_context
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-5
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: cancellation_fee_amount_value
+            type: numeric(15, 2)
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: cancellation_terms_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: provider_id
+            type: INTEGER
+        - column:
+            name: reason_required
+            type: BOOLEAN
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: cancellation_fee_amount_currency
+            type: VARCHAR(10)
+        - column:
+            name: cancellation_fee_percentage
+            type: VARCHAR(10)
+        - column:
+            name: fulfillment_state_descriptor_code
+            type: VARCHAR(50)
+        tableName: cancellation_terms
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-6
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: categories_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: category_id
+            type: VARCHAR(20)
+        - column:
+            name: description
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: VARCHAR(255)
+        tableName: categories
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-7
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: creator_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: creator_contact_phone
+            type: VARCHAR(20)
+        - column:
+            name: created_by
+            type: VARCHAR(255)
+        - column:
+            name: creator_contact_address
+            type: TEXT
+        - column:
+            name: creator_contact_email
+            type: VARCHAR(255)
+        - column:
+            name: creator_contact_name
+            type: VARCHAR(255)
+        - column:
+            name: creator_name
+            type: VARCHAR(255)
+        - column:
+            name: updated_by
+            type: VARCHAR(255)
+        tableName: creator
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-8
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: item_tag_mapping_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: item_id
+            type: INTEGER
+        - column:
+            name: tag_list_id
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: created_by
+            type: VARCHAR(255)
+        - column:
+            name: updated_by
+            type: VARCHAR(255)
+        tableName: item_tag_mapping
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-9
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: offers_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: offer_end_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: offer_start_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: code
+            type: VARCHAR(50)
+        - column:
+            name: image_url
+            type: VARCHAR(255)
+        - column:
+            name: long_desc
+            type: TEXT
+        - column:
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: short_desc
+            type: TEXT
+        tableName: offers
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-10
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: item_location_mapping_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: item_id
+            type: INTEGER
+        - column:
+            name: location_id
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: created_by
+            type: VARCHAR(255)
+        - column:
+            name: updated_by
+            type: VARCHAR(255)
+        tableName: item_location_mapping
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-11
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: fulfillment_id
+            type: INTEGER
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: fulfillment_stops_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: location_id
+            type: INTEGER
+        - column:
+            name: authorization_valid_from
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: authorization_valid_to
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: time_range_end
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: time_range_start
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: contact_phone
+            type: VARCHAR(20)
+        - column:
+            name: authorization_status
+            type: VARCHAR(50)
+        - column:
+            name: authorization_token
+            type: VARCHAR(50)
+        - column:
+            name: authorization_type
+            type: VARCHAR(50)
+        - column:
+            name: time_label
+            type: VARCHAR(50)
+        - column:
+            name: type
+            type: VARCHAR(50)
+        - column:
+            name: contact_email
+            type: VARCHAR(255)
+        - column:
+            name: instructions_name
+            type: VARCHAR(255)
+        - column:
+            name: instructions_short_desc
+            type: TEXT
+        - column:
+            name: person_name
+            type: VARCHAR(255)
+        tableName: fulfillment_stops
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-12
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: order_fulfillments_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: order_id
+            type: INTEGER
+        - column:
+            name: rateable
+            type: BOOLEAN
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: external_id
+            type: VARCHAR(50)
+        - column:
+            name: state_descriptor_code
+            type: VARCHAR(50)
+        tableName: order_fulfillments
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-13
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: order_payment_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: order_id
+            type: INTEGER
+        - column:
+            name: params_amount
+            type: numeric(15, 2)
+        - column:
+            name: payment_type_id
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: params_currency
+            type: VARCHAR(10)
+        - column:
+            name: collected_by
+            type: VARCHAR(50)
+        - column:
+            name: params_bank_account_number
+            type: VARCHAR(50)
+        - column:
+            name: status
+            type: VARCHAR(50)
+        - column:
+            name: type
+            type: VARCHAR(50)
+        - column:
+            name: params_virtual_payment_address
+            type: VARCHAR(255)
+        - column:
+            name: url
+            type: VARCHAR(255)
+        tableName: order_payment
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-14
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: cancellation_term_id
+            type: INTEGER
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: order_cancellation_term_mapping_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: order_id
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        tableName: order_cancellation_term_mapping
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-15
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: quote_breakups_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: item_id
+            type: INTEGER
+        - column:
+            name: price_value
+            type: numeric(15, 2)
+        - column:
+            name: quote_id
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: price_currency
+            type: VARCHAR(10)
+        - column:
+            name: title
+            type: VARCHAR(255)
+        tableName: quote_breakups
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-16
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: quote_breakups_tag_mapping_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: quote_breakup_id
+            type: INTEGER
+        - column:
+            name: tag_list_id
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: created_by
+            type: VARCHAR(255)
+        - column:
+            name: updated_by
+            type: VARCHAR(255)
+        tableName: quote_breakups_tag_mapping
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-17
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: quotes_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: order_id
+            type: INTEGER
+        - column:
+            name: price_value
+            type: numeric(15, 2)
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: price_currency
+            type: VARCHAR(10)
+        - column:
+            name: ttl
+            type: VARCHAR(10)
+        tableName: quotes
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-18
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: item_payment_mapping_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: item_id
+            type: INTEGER
+        - column:
+            name: payment_id
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: created_by
+            type: VARCHAR(255)
+        - column:
+            name: updated_by
+            type: VARCHAR(255)
+        tableName: item_payment_mapping
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-19
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: tag_group_lookup_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: descriptor_code
+            type: VARCHAR(100)
+        - column:
+            name: list_code
+            type: VARCHAR(100)
+        tableName: tag_group_lookup
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-20
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: tags_list_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: tag_id
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: descriptor_code
+            type: VARCHAR(100)
+        - column:
+            name: value
+            type: VARCHAR(100)
+        tableName: tags_list
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-21
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: provider_fullfillments_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: provider_id
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: email
+            type: VARCHAR(255)
+        - column:
+            name: phone_number
+            type: VARCHAR(255)
+        tableName: provider_fullfillments
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-22
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: order_items_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: item_id
+            type: INTEGER
+        - column:
+            name: order_id
+            type: INTEGER
+        - column:
+            name: price_maximum_value
+            type: numeric(15, 2)
+        - column:
+            name: price_offered_value
+            type: numeric(15, 2)
+        - column:
+            name: quantity_selected_count
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: price_currency
+            type: VARCHAR(10)
+        tableName: order_items
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-23
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: payment_type_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: payment_id
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: payment_type
+            type: VARCHAR(255)
+        tableName: payment_type
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-24
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: item_media_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: item_id
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: created_by
+            type: VARCHAR(255)
+        - column:
+            name: mime_type
+            type: VARCHAR(255)
+        - column:
+            name: updated_by
+            type: VARCHAR(255)
+        - column:
+            name: url
+            type: VARCHAR(255)
+        tableName: item_media
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-25
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: order_tag_mapping_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: order_id
+            type: INTEGER
+        - column:
+            name: tag_list_id
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: created_by
+            type: VARCHAR(255)
+        - column:
+            name: updated_by
+            type: VARCHAR(255)
+        tableName: order_tag_mapping
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-26
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: order_billing_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: order_id
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: billing_phone
+            type: VARCHAR(20)
+        - column:
+            name: billing_tax_id
+            type: VARCHAR(50)
+        - column:
+            name: billing_city_name
+            type: VARCHAR(100)
+        - column:
+            name: billing_state_name
+            type: VARCHAR(100)
+        - column:
+            name: billing_address
+            type: TEXT
+        - column:
+            name: billing_email
+            type: VARCHAR(255)
+        - column:
+            name: billing_name
+            type: VARCHAR(255)
+        tableName: order_billing
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-27
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: item_category_mapping_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: item_id
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: category_id
+            type: VARCHAR(20)
+        - column:
+            name: created_by
+            type: VARCHAR(255)
+        - column:
+            name: updated_by
+            type: VARCHAR(255)
+        tableName: item_category_mapping
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-28
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: provider_rating_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: provider_id
+            type: INTEGER
+        - column:
+            name: rating
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: created_by
+            type: VARCHAR(255)
+        tableName: provider_rating
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-29
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: provider_location_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: location_id
+            type: INTEGER
+        - column:
+            name: provider_id
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: created_by
+            type: VARCHAR(255)
+        - column:
+            name: updated_by
+            type: VARCHAR(255)
+        tableName: provider_location
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-30
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: area_code
+            type: INTEGER
+        - column:
+            name: city_name_id
+            type: INTEGER
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: locations_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: country_code
+            type: VARCHAR(10)
+        - column:
+            name: city_code
+            type: VARCHAR(50)
+        - column:
+            name: state_code
+            type: VARCHAR(50)
+        - column:
+            name: state_name
+            type: VARCHAR(100)
+        - column:
+            name: address
+            type: TEXT
+        - column:
+            name: gps
+            type: VARCHAR(255)
+        tableName: locations
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-31
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: quote_tag_mapping_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: quore_id
+            type: INTEGER
+        - column:
+            name: tag_list_id
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: created_by
+            type: VARCHAR(255)
+        - column:
+            name: updated_by
+            type: VARCHAR(255)
+        tableName: quote_tag_mapping
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-32
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: provider_media_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: provider_id
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: created_by
+            type: VARCHAR(255)
+        - column:
+            name: updated_by
+            type: VARCHAR(255)
+        - column:
+            name: url
+            type: VARCHAR(255)
+        tableName: provider_media
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-33
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: order_documents_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: order_id
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: label
+            type: VARCHAR(50)
+        - column:
+            name: url
+            type: VARCHAR(255)
+        tableName: order_documents
+        ifNotExists: true
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-34
+    author: animesh (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: provider_credentials_pkey
+            name: id
+            type: INTEGER
+        - column:
+            name: is_active
+            type: BOOLEAN
+        - column:
+            name: provider_id
+            type: INTEGER
+        - column:
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: certificate_id
+            type: VARCHAR(50)
+        - column:
+            name: type
+            type: VARCHAR(50)
+        - column:
+            name: description
+            type: TEXT
+        - column:
+            name: url
+            type: VARCHAR(255)
+        tableName: provider_credentials
+        ifNotExists: true
+        schemaName: ondc_schema
+
+- changeSet:
+      id: 1744024820214-35
+      author: animesh (generated)
+      preConditions:
+          - onFail: MARK_RAN
+          - not:
+                - uniqueConstraintExists:
+                      constraintName: providers_provider_id_key
+                      schemaName: ondc_schema
+                      tableName: providers
+      changes:
+          - addUniqueConstraint:
+                columnNames: provider_id
+                constraintName: providers_provider_id_key
+                tableName: providers
+                schemaName: ondc_schema
+
+
+
+- changeSet:
+      id: 1744024820214-36
+      author: animesh (generated)
+      changes:
+          - sql:
+                sql: ALTER TABLE ondc_schema.provider_item DROP CONSTRAINT IF EXISTS fkowgvdn1e14g3gyadv306al0xd;
+          - addForeignKeyConstraint:
+                baseColumnNames: provider_id
+                baseTableName: provider_item
+                constraintName: fkowgvdn1e14g3gyadv306al0xd
+                deferrable: false
+                initiallyDeferred: false
+                onDelete: NO ACTION
+                onUpdate: NO ACTION
+                referencedColumnNames: id
+                referencedTableName: providers
+                schemaName: ondc_schema
+                validate: true
+
+
+
+- changeSet:
+    id: 1744024820214-37
+    author: animesh (generated)
+    changes:
+        - sql:
+            sql: ALTER TABLE ondc_schema.orders DROP CONSTRAINT IF EXISTS fk68bc6bicevsfnwd1kovyvaq1k;
+        - addForeignKeyConstraint:
+            baseColumnNames: provider_id
+            baseTableName: orders
+            constraintName: fk68bc6bicevsfnwd1kovyvaq1k
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: providers
+            schemaName: ondc_schema
+            validate: true
+- changeSet:
+    id: 1744024820214-38
+    author: animesh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: order_id
+        constraintName: orders_order_id_key
+        tableName: orders
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-39
+    author: animesh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: message_id
+        constraintName: buyer_context_message_id_key
+        tableName: buyer_context
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-40
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.orders DROP CONSTRAINT IF EXISTS fk8po7hw558ri6c5vcbjk5reh07;
+        - addForeignKeyConstraint:
+            baseColumnNames: context_id
+            baseTableName: orders
+            constraintName: fk8po7hw558ri6c5vcbjk5reh07
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: context_id
+            referencedTableName: buyer_context
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-41
+    author: animesh (generated)
+    changes:
+        - sql:
+            sql: ALTER TABLE ondc_schema.cancellation_terms DROP CONSTRAINT IF EXISTS fkd605roto9s4fjygo0eldrk8p1;
+        - addForeignKeyConstraint:
+            baseColumnNames: provider_id
+            baseTableName: cancellation_terms
+            constraintName: fkd605roto9s4fjygo0eldrk8p1
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: providers
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-42
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.order_cancellation_term_mapping DROP CONSTRAINT IF EXISTS cancellation_term_id;
+        - addForeignKeyConstraint:
+            baseColumnNames: cancellation_term_id
+            baseTableName: order_cancellation_term_mapping
+            constraintName: cancellation_term_id
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: cancellation_terms
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-43
+    author: animesh (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: category_id
+        indexName: categories_category_id_key
+        tableName: categories
+        schemaName: ondc_schema
+        unique: true
+- changeSet:
+    id: 1744024820214-44
+    author: animesh (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: name
+        indexName: categories_name_key
+        tableName: categories
+        schemaName: ondc_schema
+        unique: true
+- changeSet:
+    id: 1744024820214-45
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.item_category_mapping DROP CONSTRAINT IF EXISTS fko9h0h91dldup15l3ggomkxbdg;
+        - addForeignKeyConstraint:
+            baseColumnNames: category_id
+            baseTableName: item_category_mapping
+            constraintName: fko9h0h91dldup15l3ggomkxbdg
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: category_id
+            referencedTableName: categories
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-46
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.provider_item DROP CONSTRAINT IF EXISTS fk6cq0fo2bvbugjk3ymcxu0foan;
+        - addForeignKeyConstraint:
+            baseColumnNames: creator_id
+            baseTableName: provider_item
+            constraintName: fk6cq0fo2bvbugjk3ymcxu0foan
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: creator
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-47
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.item_tag_mapping DROP CONSTRAINT IF EXISTS fk1hwoooipkn89dj6evmn5kkt3i;
+        - addForeignKeyConstraint:
+            baseColumnNames: item_id
+            baseTableName: item_tag_mapping
+            constraintName: fk1hwoooipkn89dj6evmn5kkt3i
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: provider_item
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-48
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.item_location_mapping DROP CONSTRAINT IF EXISTS fk24f0y0j4kslpuuo5c73q4kct2;
+        - addForeignKeyConstraint:
+            baseColumnNames: item_id
+            baseTableName: item_location_mapping
+            constraintName: fk24f0y0j4kslpuuo5c73q4kct2
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: provider_item
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-49
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.order_fulfillments DROP CONSTRAINT IF EXISTS fk5n3kqjkmhffyi3s8wdknqtf68;
+        - addForeignKeyConstraint:
+            baseColumnNames: order_id
+            baseTableName: order_fulfillments
+            constraintName: fk5n3kqjkmhffyi3s8wdknqtf68
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: orders
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-50
+    author: animesh (generated)
+    changes:
+        - sql:
+                sql: ALTER TABLE ondc_schema.order_payment DROP CONSTRAINT IF EXISTS fk4gxu529yw61gxoxgnylq4lf1l;
+        - addForeignKeyConstraint:
+            baseColumnNames: order_id
+            baseTableName: order_payment
+            constraintName: fk4gxu529yw61gxoxgnylq4lf1l
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: orders
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-51
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.order_cancellation_term_mapping DROP CONSTRAINT IF EXISTS fk54v0w4wp3bxxy43u3j7kgdpqk;
+        - addForeignKeyConstraint:
+            baseColumnNames: order_id
+            baseTableName: order_cancellation_term_mapping
+            constraintName: fk54v0w4wp3bxxy43u3j7kgdpqk
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: orders
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-52
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.quote_breakups DROP CONSTRAINT IF EXISTS fkavr4r9ritkhspoqixp4llv0d7;
+        - addForeignKeyConstraint:
+            baseColumnNames: item_id
+            baseTableName: quote_breakups
+            constraintName: fkavr4r9ritkhspoqixp4llv0d7
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: provider_item
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-53
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.quote_breakups_tag_mapping DROP CONSTRAINT IF EXISTS fk64tepnvk34lxjmp6wnk5i9f7a;
+        - addForeignKeyConstraint:
+            baseColumnNames: quote_breakup_id
+            baseTableName: quote_breakups_tag_mapping
+            constraintName: fk64tepnvk34lxjmp6wnk5i9f7a
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: quote_breakups
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-54
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.quotes DROP CONSTRAINT IF EXISTS fkc12onfc9vc9hugeqx50u78t90;
+        - addForeignKeyConstraint:
+            baseColumnNames: order_id
+            baseTableName: quotes
+            constraintName: fkc12onfc9vc9hugeqx50u78t90
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: orders
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-55
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.item_payment_mapping DROP CONSTRAINT IF EXISTS fk98vln7cr4clsefmrty98vckn6;
+        - addForeignKeyConstraint:
+            baseColumnNames: item_id
+            baseTableName: item_payment_mapping
+            constraintName: fk98vln7cr4clsefmrty98vckn6
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: provider_item
+            validate: true
+            schemaName: ondc_schema
+
+- changeSet:
+    id: 1744024820214-56
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.tags_list DROP CONSTRAINT IF EXISTS fk9mpgkbanp6kuqcbvmv151e94y;
+        - addForeignKeyConstraint:
+            baseColumnNames: tag_id
+            baseTableName: tags_list
+            constraintName: fk9mpgkbanp6kuqcbvmv151e94y
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: tag_group_lookup
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-57
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.provider_fullfillments DROP CONSTRAINT IF EXISTS fk9sxp26skdtd4b5f6o793amyi2;
+        - addForeignKeyConstraint:
+            baseColumnNames: provider_id
+            baseTableName: provider_fullfillments
+            constraintName: fk9sxp26skdtd4b5f6o793amyi2
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: providers
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-58
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.order_items DROP CONSTRAINT IF EXISTS fk9urnfkr000o11djy08s1q9c39;
+        - addForeignKeyConstraint:
+            baseColumnNames: item_id
+            baseTableName: order_items
+            constraintName: fk9urnfkr000o11djy08s1q9c39
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: provider_item
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-59
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.order_items DROP CONSTRAINT IF EXISTS fkbioxgbv59vetrxe0ejfubep1w;
+        - addForeignKeyConstraint:
+            baseColumnNames: order_id
+            baseTableName: order_items
+            constraintName: fkbioxgbv59vetrxe0ejfubep1w
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: orders
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-60
+    author: animesh (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: payment_id
+        constraintName: payment_type_payment_id_key
+        tableName: payment_type
+        schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-61
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.item_media DROP CONSTRAINT IF EXISTS fkaeafmjnym5w9k7ngw2okguhm9;
+        - addForeignKeyConstraint:
+            baseColumnNames: item_id
+            baseTableName: item_media
+            constraintName: fkaeafmjnym5w9k7ngw2okguhm9
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: provider_item
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-62
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.order_tag_mapping DROP CONSTRAINT IF EXISTS fkd9pjma348hwljd8edjxhslcvu;
+        - addForeignKeyConstraint:
+            baseColumnNames: tag_list_id
+            baseTableName: order_tag_mapping
+            constraintName: fkd9pjma348hwljd8edjxhslcvu
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: tags_list
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-63
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.order_tag_mapping DROP CONSTRAINT IF EXISTS fkjq95kyyb61f14amamkn3sy0bi;
+        - addForeignKeyConstraint:
+            baseColumnNames: order_id
+            baseTableName: order_tag_mapping
+            constraintName: fkjq95kyyb61f14amamkn3sy0bi
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: orders
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-64
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.order_billing DROP CONSTRAINT IF EXISTS fkdk5wgtn9bnw4q2b006t6c3pm0;
+        - addForeignKeyConstraint:
+            baseColumnNames: order_id
+            baseTableName: order_billing
+            constraintName: fkdk5wgtn9bnw4q2b006t6c3pm0
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: orders
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-65
+    author: animesh (generated)
+    changes:
+        - sql:
+                sql: ALTER TABLE ondc_schema.item_category_mapping DROP CONSTRAINT IF EXISTS fkfcrc1300e57fvcqivmb3g91bn;
+        - addForeignKeyConstraint:
+            baseColumnNames: item_id
+            baseTableName: item_category_mapping
+            constraintName: fkfcrc1300e57fvcqivmb3g91bn
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: provider_item
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-66
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.provider_rating DROP CONSTRAINT IF EXISTS fkh5hvsldju31eeb0sokc6enwxn;
+        - addForeignKeyConstraint:
+            baseColumnNames: provider_id
+            baseTableName: provider_rating
+            constraintName: fkh5hvsldju31eeb0sokc6enwxn
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: providers
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-67
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.provider_location DROP CONSTRAINT IF EXISTS fkiam3pvn2osyilr91k8ccusd3j;
+        - addForeignKeyConstraint:
+            baseColumnNames: provider_id
+            baseTableName: provider_location
+            constraintName: fkiam3pvn2osyilr91k8ccusd3j
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: providers
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-68
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.quote_tag_mapping DROP CONSTRAINT IF EXISTS fknvlihju3x78q4r1vttk9jtjsw;
+        - addForeignKeyConstraint:
+            baseColumnNames: tag_list_id
+            baseTableName: quote_tag_mapping
+            constraintName: fknvlihju3x78q4r1vttk9jtjsw
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: tags_list
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-69
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.quote_tag_mapping DROP CONSTRAINT IF EXISTS fktfwhqvobf97781oxc9f8vsigs;
+        - addForeignKeyConstraint:
+            baseColumnNames: quore_id
+            baseTableName: quote_tag_mapping
+            constraintName: fktfwhqvobf97781oxc9f8vsigs
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: quotes
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-70
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.provider_media DROP CONSTRAINT IF EXISTS fkojfxe4yr6jqn9xo4swe6cvir2;
+        - addForeignKeyConstraint:
+            baseColumnNames: provider_id
+            baseTableName: provider_media
+            constraintName: fkojfxe4yr6jqn9xo4swe6cvir2
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: providers
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-71
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.order_documents DROP CONSTRAINT IF EXISTS fkqdrmgrqrq4sb1vy1niuypbeti;
+        - addForeignKeyConstraint:
+            baseColumnNames: order_id
+            baseTableName: order_documents
+            constraintName: fkqdrmgrqrq4sb1vy1niuypbeti
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: orders
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-72
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.provider_credentials DROP CONSTRAINT IF EXISTS fkrehssw94xd2jlyfhtpoy9hpev;
+        - addForeignKeyConstraint:
+            baseColumnNames: provider_id
+            baseTableName: provider_credentials
+            constraintName: fkrehssw94xd2jlyfhtpoy9hpev
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: providers
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-73
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.provider_item DROP CONSTRAINT IF EXISTS fk1ix35k6n909uxtfaudgvmj3t5;
+        - addForeignKeyConstraint:
+            baseColumnNames: offer_id
+            baseTableName: provider_item
+            constraintName: fk1ix35k6n909uxtfaudgvmj3t5
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: offers
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-74
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.item_tag_mapping DROP CONSTRAINT IF EXISTS fkby3s6b6kbcf2w8vx83ohaf3br;
+        - addForeignKeyConstraint:
+            baseColumnNames: tag_list_id
+            baseTableName: item_tag_mapping
+            constraintName: fkby3s6b6kbcf2w8vx83ohaf3br
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: tags_list
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-75
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.item_location_mapping DROP CONSTRAINT IF EXISTS fkqp2eht6fdkmxdwxkwqr691pm;
+        - addForeignKeyConstraint:
+            baseColumnNames: location_id
+            baseTableName: item_location_mapping
+            constraintName: fkqp2eht6fdkmxdwxkwqr691pm
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: provider_location
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-76
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.fulfillment_stops DROP CONSTRAINT IF EXISTS fk4f15cvohipmnv88oik4xaf2we;
+        - addForeignKeyConstraint:
+            baseColumnNames: fulfillment_id
+            baseTableName: fulfillment_stops
+            constraintName: fk4f15cvohipmnv88oik4xaf2we
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: order_fulfillments
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-77
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.fulfillment_stops DROP CONSTRAINT IF EXISTS fkk6draku1phsank7cti82dokfe;
+        - addForeignKeyConstraint:
+            baseColumnNames: location_id
+            baseTableName: fulfillment_stops
+            constraintName: fkk6draku1phsank7cti82dokfe
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: locations
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-78
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.order_payment DROP CONSTRAINT IF EXISTS fkmflg456wo3hnyp9w3bpaul39u;
+        - addForeignKeyConstraint:
+            baseColumnNames: payment_type_id
+            baseTableName: order_payment
+            constraintName: fkmflg456wo3hnyp9w3bpaul39u
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: payment_type
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-79
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.quote_breakups DROP CONSTRAINT IF EXISTS fk8srw0ohm91f769hyg4dv98ulk;
+        - addForeignKeyConstraint:
+            baseColumnNames: quote_id
+            baseTableName: quote_breakups
+            constraintName: fk8srw0ohm91f769hyg4dv98ulk
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: quotes
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-80
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.quote_breakups_tag_mapping DROP CONSTRAINT IF EXISTS fkau3n6diww9036ula56inbb8cf;
+        - addForeignKeyConstraint:
+            baseColumnNames: tag_list_id
+            baseTableName: quote_breakups_tag_mapping
+            constraintName: fkau3n6diww9036ula56inbb8cf
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: tags_list
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-81
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.item_payment_mapping DROP CONSTRAINT IF EXISTS fkaajatr38atnpjqm202umsdncj;
+        - addForeignKeyConstraint:
+            baseColumnNames: payment_id
+            baseTableName: item_payment_mapping
+            constraintName: fkaajatr38atnpjqm202umsdncj
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: payment_type
+            validate: true
+            schemaName: ondc_schema
+- changeSet:
+    id: 1744024820214-82
+    author: animesh (generated)
+    changes:
+        - sql:
+              sql: ALTER TABLE ondc_schema.provider_location DROP CONSTRAINT IF EXISTS fkit6ht2agiwxxiydhk9gv31fgw;
+        - addForeignKeyConstraint:
+            baseColumnNames: location_id
+            baseTableName: provider_location
+            constraintName: fkit6ht2agiwxxiydhk9gv31fgw
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: locations
+            validate: true
+            schemaName: ondc_schema
+
